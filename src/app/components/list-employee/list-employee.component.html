@@ -1,0 +1,104 @@
+
+<div class="container">
+
+    <div class="general-title" fxLayout="column" fxLayoutAlign="center center">
+      <div class="title-text">
+        <mat-icon class="title-icon">insert_chart_outlined</mat-icon>
+        <h2>Employee</h2>
+      </div>
+    </div>
+  
+    <div class="search-div">
+  
+      <mat-form-field class="search-form-field" floatLabel="never">
+        <input matInput [(ngModel)]="searchKey" placeholder="Search" autocomplete="off" (keyup)="applyFilter()">
+        <button mat-button matSuffix mat-icon-button aria-label="Clear" *ngIf="searchKey" (click)="onSearchClear()">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+  
+      <button mat-stroked-button color="primary" (click)="onUploadRecords()"  class="my-2">
+        <mat-icon>unarchive</mat-icon>Crear
+      </button>
+    </div>
+  
+  </div>
+  
+  <div class="mat-elevation-z8">
+  
+    <mat-table [dataSource]="listEmployee" matSort>
+    
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Id</mat-header-cell>
+        <mat-cell *matCellDef="let item">{{item.id}}</mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="Name">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
+        <mat-cell *matCellDef="let item">{{item.name}}</mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="LastName">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Last Name</mat-header-cell>
+        <mat-cell *matCellDef="let item">{{item.lastname}}</mat-cell>
+      </ng-container>
+      
+      <ng-container matColumnDef="Phone">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Phone</mat-header-cell>
+        <mat-cell *matCellDef="let item">{{item.phone}}</mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="Email">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Email</mat-header-cell>
+        <mat-cell *matCellDef="let item">{{item.email}}</mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="idBoss">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Id Boss</mat-header-cell>
+        <mat-cell *matCellDef="let item">{{item.idBoss}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="action">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Action</mat-header-cell>
+        <mat-cell *matCellDef="let item">
+          <button mat-icon-button color="primary" (click)="onEditRecords(item)"  class="my-2">
+            <mat-icon style="color:gray;">edit</mat-icon>
+          </button>
+          
+          <button mat-icon-button color="Warn" (click)="onDelete(item)"  class="my-2">
+            <mat-icon style="color: red;">delete</mat-icon>
+          </button>
+        </mat-cell>
+      </ng-container>
+  
+      
+  
+      <ng-container matColumnDef="loading">
+        <mat-footer-cell *matFooterCellDef colspan="6">
+          Cargando Datos...
+        </mat-footer-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="noData">
+        <mat-footer-cell *matFooterCellDef colspan="6">
+          Sin Datos.
+        </mat-footer-cell>
+      </ng-container>
+  
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      <mat-footer-cell *matFooterCellDef>
+        <mat-footer-row *matFooterRowDef="['loading']" [ngClass]="{'hide':listEmployee!=null}">
+        </mat-footer-row>
+      </mat-footer-cell>
+  
+      <mat-footer-cell *matFooterCellDef>
+        <mat-footer-row *matFooterRowDef="['noData']"
+          [ngClass]="{'hide':!(listEmployee!=null && listEmployee.data.length==0)}">
+        </mat-footer-row>
+      </mat-footer-cell>
+    </mat-table>
+  
+    <mat-paginator [pageSizeOptions]="[10, 20, 40, 80]" [pageSize]="10" showFirstLastButtons></mat-paginator>
+  
+  </div>

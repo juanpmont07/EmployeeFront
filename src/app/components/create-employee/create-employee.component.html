@@ -1,0 +1,65 @@
+<mat-toolbar>
+    <span>Create Employee</span>
+    <span class="fill-remaining-space"></span>
+    <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabIndex="-1">
+      <mat-icon>clear</mat-icon>
+    </button>
+  </mat-toolbar>
+  
+  <div class="row" >
+    <div class="col-lg-8">
+      
+      <form [formGroup]="empServ.formExternalList" (ngSubmit)="onSubmit()">
+        <div class="container" fxLayout fxLayout.xs="column" fxLayoutAlign="left" fxLayoutGap="10px" fxLayoutGap.xs="0">
+        <div class="item item-1" fxFlex="30%">
+          <mat-form-field >
+            <input matInput formControlName="id"  type="number" placeholder="Write Id">
+          </mat-form-field>
+        </div>
+        <div class="item item-1" fxFlex="30%">
+          <mat-form-field>
+              <input matInput formControlName="name" type="text" placeholder="Write Name">
+          </mat-form-field>
+        </div>
+        </div>
+        <div class="container" fxLayout fxLayout.xs="column" fxLayoutAlign="left" fxLayoutGap="10px" fxLayoutGap.xs="0">
+        
+        <div class="item item-1" fxFlex="30%">
+          <mat-form-field>
+            <input matInput formControlName="lastname"  type="text" placeholder="Write Last name">
+          </mat-form-field>
+        </div>
+        <div class="item item-1" fxFlex="30%">
+          <mat-form-field>
+              <input matInput formControlName="phone" type="number" placeholder="Write Phone number">
+          </mat-form-field>
+        </div>
+        </div>
+
+        <div class="container" fxLayout fxLayout.xs="column" fxLayoutAlign="left" fxLayoutGap="10px" fxLayoutGap.xs="0">
+        
+        <div class="item item-1" fxFlex="30%">
+          <mat-form-field>
+            <input matInput formControlName="email"  type="email" placeholder="Write Email">
+          </mat-form-field>
+        </div>
+        <div class="item item-1" fxFlex="30%">
+            <mat-form-field >
+                <mat-select placeholder="Boss *" formControlName="idBoss">
+                  <mat-option *ngFor="let item of employee" [value]="item">
+                    {{item.name}}
+                  </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        </div>
+        <div class="container" fxLayout fxLayout.xs="column" fxLayoutAlign="left" fxLayoutGap="10px" fxLayoutGap.xs="0">
+        
+        <div class="item item" fxFlex="30%">
+          <button mat-raised-button color="primary" type="submit"
+            [disabled]="empServ.formExternalList.invalid || empServ.formExternalList.pristine">Create</button>
+        </div>
+    </div>
+      </form>
+    </div>
+  </div>

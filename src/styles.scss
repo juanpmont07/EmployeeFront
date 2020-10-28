@@ -1,0 +1,390 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+
+@import "~@angular/material/theming";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+$mat-gw-primary: (
+  50: #e4e4e5,
+  100: #bcbcbf,
+  200: #8f9094,
+  300: #626469,
+  400: #404249,
+  500: #1e2129,
+  600: #1a1d24,
+  700: #16181f,
+  800: #121419,
+  900: #0a0b0f,
+  A100: #548dff,
+  A200: #216bff,
+  A400: #004fed,
+  A700: #0047d4,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #ffffff,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #ffffff,
+    A400: #ffffff,
+    A700: #ffffff,
+  ),
+);
+
+$mat-gw-accent: (
+  50: #f1f8e9,
+  100: #dcedc9,
+  200: #c5e1a5,
+  300: #aed580,
+  400: #9ccc65,
+  500: #8bc34a,
+  600: #83bd43,
+  700: #78b53a,
+  800: #6eae32,
+  900: #5ba122,
+  A100: #ebffdd,
+  A200: #ceffaa,
+  A400: #b0ff77,
+  A700: #a2ff5d,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #ffffff,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #ffffff,
+    A400: #ffffff,
+    A700: #ffffff,
+  ),
+);
+
+$mat-gw-warn: (
+  50: #fee8e7,
+  100: #fcc7c3,
+  200: #faa19b,
+  300: #f77b72,
+  400: #f65f54,
+  500: #f44336,
+  600: #f33d30,
+  700: #f13429,
+  800: #ef2c22,
+  900: #ec1e16,
+  A100: #ffffff,
+  A200: #ffe9e9,
+  A400: #ffb8b6,
+  A700: #ff9f9c,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
+);
+
+$primary: mat-palette($mat-gw-primary);
+$accent: mat-palette($mat-gw-accent);
+$warn: mat-palette($mat-gw-warn);
+
+$theme: mat-light-theme($primary, $accent, $warn);
+
+@include angular-material-theme($theme);
+
+$base-color-blue: #1e2129;
+$base-color-gray: #bcbdbf;
+
+.general-container {
+  padding: 20px;
+}
+
+.general-title {
+  position: relative;
+  flex: 1 0 auto;
+  height: 80px;
+  max-height: 80px;
+  text-align: center;
+  overflow: hidden;
+  background: linear-gradient(to right, #0e2a3b 0%, #34306b 100%);
+  color: white !important;
+
+  .title-text {
+    .title-icon {
+      position: absolute;
+      top: -64px;
+      left: 50px;
+      opacity: 0.04;
+      font-size: 150px !important;
+      width: 150px !important;
+      height: 150px !important;
+    }
+
+    h2 {
+      font-size: 30px;
+      font-weight: 300;
+      letter-spacing: 0.01em;
+      text-align: center;
+      margin-top: 0;
+      margin-bottom: 5px;
+    }
+  }
+}
+
+.controles-container {
+  width: 100%;
+  padding: 5%;
+}
+
+/*Amplia el tamaño de los input de los formularios en angular material*/
+.controles-container > * {
+  width: 100%;
+}
+
+/*Mat toolbar de nombres componentes*/
+.mat-toolbar {
+  //background: #2f19dac7;
+  background: linear-gradient(to right, #0e2a3b 0%, #34306b 100%);
+  color: rgba(239, 233, 233, 0.87);
+}
+
+.gw-img {
+  display: block;
+  margin: auto;
+  width: 100%;
+}
+
+.card-header {
+  background-color: #3f51b5 !important;
+}
+
+.card-header a {
+  color: #adbac5 !important;
+}
+
+.border-dark {
+  border-color: #3f51b5 !important;
+}
+
+.table .thead-dark th {
+  color: #fff;
+  background-color: #3f51b5;
+  border-color: #3f51b5;
+}
+
+.add-botton-padding {
+  padding-bottom: 10%;
+}
+
+.fill-remaining-space {
+  /* This fills the remaining space, by using flexbox. 
+    Every toolbar row uses a flexbox row layout. */
+  flex: 1 1 auto;
+}
+
+mat-radio-group mat-radio-button {
+  margin-left: 5px;
+}
+
+.button-row button {
+  margin: 5px;
+}
+
+.radio-margin {
+  margin: 0 10px;
+}
+
+/*Estilos para el servicio de mensajes*/
+snack-bar-container.success {
+  background-color: #5cb85c;
+  color: #fff;
+}
+
+snack-bar-container.warning {
+  background-color: #fa7000;
+  color: #fff;
+}
+
+snack-bar-container.error {
+  background-color: #fa0000;
+  color: #fff;
+}
+
+snack-bar-container.notification simple-snack-bar {
+  font-size: 18px !important;
+  font-weight: bold;
+}
+
+.hide {
+  display: none;
+}
+
+/* filter controls */
+.search-div {
+  margin: 10px;
+}
+
+.search-form-field {
+  width: 50%;
+  padding: 5px 10px;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+}
+
+.search-form-field div.mat-form-field-underline {
+  display: none;
+}
+
+.search-form-field div.mat-form-field-infix {
+  border-top: 0px;
+}
+
+.search-form-field div.mat-form-field-wrapper {
+  padding-bottom: 0px;
+}
+
+.search-form-field div.mat-form-field-suffix button {
+  height: 32px;
+  width: 32px;
+}
+
+/* for dialog pop-up */
+.btn-dialog-close {
+  width: 45px;
+  min-width: 0px !important;
+  height: 40px;
+  padding: 0px !important;
+}
+/*espacio entre botones en linea*/
+.button-inline {
+  margin-left: 5px !important;
+}
+
+.divider-margin {
+  padding-top: 10px;
+}
+
+.divider-margin-novelty {
+  padding-top: 40px;
+}
+
+.button-margin {
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
+
+.mat-column-center {
+  display: flex;
+  justify-content: center;
+}
+
+.div-padding {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.loadModuleMessage .mat-simple-snackbar {
+  justify-content: center;
+}
+
+.example-card {
+  border: 2px solid rgb(124, 121, 121);
+  border-radius: 5px;
+}
+
+/*Inicio Estilos scroll bar****/
+/* Ancho scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+::-webkit-scrollbar:hover {
+  background-color: rgba(0, 0, 0, 0.12);
+}
+
+::-webkit-scrollbar-thumb {
+  border: 2px solid transparent;
+  box-shadow: inset 0 0 0 12px rgba(0, 0, 0, 0.37);
+  border-radius: 12px;
+}
+
+::-webkit-scrollbar-thumb:active {
+  box-shadow: inset 0 0 0 12px rgba(0, 0, 0, 0.54);
+  border-radius: 12px;
+}
+/**Fin estilos scroll bar****/
+
+/**Inicio estilos formularios**/
+form {
+  mat-icon {
+    color: rgba(0, 0, 0, 0.54);
+  }
+}
+
+//estilo para botones de cargar archivos
+input[type="file"] {
+  border: 1px solid #ccc;
+  width: 100%;
+  height: 33px;
+  border-radius: 3px;
+  cursor: pointer;
+  color: $base-color-gray; // Color de la letra;
+}
+
+::-webkit-file-upload-button {
+  background: $base-color-blue;
+  color: $base-color-gray;
+  padding: 1em;
+  text-align: center;
+}
+
+/**Fin estilos formularios**/
+
+//Estilo para hacer elevation de un componente al pasar el mouse sobre este
+.gw-elevation {
+  &:hover {
+    border: none;
+    @include mat-elevation(6);
+  }
+}
+
+
